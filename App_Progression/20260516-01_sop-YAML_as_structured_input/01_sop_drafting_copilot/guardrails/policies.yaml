@@ -1,0 +1,20 @@
+guardrails:
+  input:
+    required_fields:
+      - facility_type
+      - procedure_title
+      - objective
+      - user_request
+      - response_format
+  output:
+    forbidden_terms:
+      - TODO
+      - FIXME
+      - as needed
+    must_include_sections:
+      - Summary
+      - Scope
+      - Prerequisites
+      - Procedure Steps
+      - Safety and Quality Checks
+      - Escalation

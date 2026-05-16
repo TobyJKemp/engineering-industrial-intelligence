@@ -1,0 +1,28 @@
+facility_type: food packaging line
+procedure_title: Sensor Cleaning and Startup Verification
+objective: Draft an SOP that reduces contamination-related stoppages and improves startup consistency.
+user_request: Create a first-draft SOP for operators and line leads with clear safety controls and escalation triggers.
+role_instructions:
+  - Write for line operators and shift leads.
+  - Use imperative language for each procedure step.
+  - Separate required controls from optional recommendations.
+style_instructions:
+  tone: clear and procedural
+  reading_level: grade_8
+  use_active_voice: true
+output_constraints:
+  max_steps: 12
+  require_numbered_steps: true
+  include_estimated_durations: true
+do_not_do:
+  - Avoid vague timing words such as regularly or periodically.
+  - Do not include unresolved placeholders.
+  - Do not skip escalation criteria.
+response_format: |
+  Markdown with sections:
+  - Summary
+  - Scope
+  - Prerequisites
+  - Procedure Steps
+  - Safety and Quality Checks
+  - Escalation

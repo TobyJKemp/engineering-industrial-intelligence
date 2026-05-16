@@ -1,0 +1,68 @@
+app:
+  name: color_change_02
+  type: browser_app
+  goal: Create a simple webpage with six color buttons and a color dropdown that change the background color.
+
+stack:
+  frontend:
+    - HTML
+    - CSS
+    - JavaScript
+  framework: none
+
+ui:
+  title: Color Change 02
+  buttons:
+    - id: btnBlue
+      label: Blue
+      color: blue
+    - id: btnRed
+      label: Red
+      color: red
+    - id: btnGreen
+      label: Green
+      color: green
+    - id: btnYellow
+      label: Yellow
+      color: yellow
+    - id: btnPurple
+      label: Purple
+      color: purple
+    - id: btnOrange
+      label: Orange
+      color: orange
+  dropdown:
+    id: colorSelect
+    label: Pick a color
+    options:
+      - name: White
+        value: white
+      - name: Blue
+        value: blue
+      - name: Red
+        value: red
+      - name: Green
+        value: green
+      - name: Yellow
+        value: yellow
+      - name: Purple
+        value: purple
+      - name: Orange
+        value: orange
+      - name: Black
+        value: black
+
+behavior:
+  button_action: set_background_to_button_color
+  dropdown_action: set_background_to_selected_color
+
+output_files:
+  - generated/index.html
+  - generated/styles.css
+  - generated/script.js
+
+acceptance_criteria:
+  - Six buttons are visible.
+  - Clicking Blue sets background to blue.
+  - Clicking Red sets background to red.
+  - Changing dropdown selection sets background to selected color.

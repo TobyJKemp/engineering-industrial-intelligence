@@ -1,0 +1,58 @@
+:root {
+  --bg: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 180ms ease;
+}
+
+.app {
+  display: grid;
+  gap: 0.9rem;
+  width: min(92vw, 540px);
+  padding: 1.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.84);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+button,
+select {
+  border: 1px solid #9ca3af;
+  border-radius: 8px;
+  font-size: 0.96rem;
+  padding: 0.65rem 0.75rem;
+}
+
+button {
+  cursor: pointer;
+  background: #111827;
+  color: #ffffff;
+}
+
+button:focus-visible,
+select:focus-visible {
+  outline: 3px solid #111827;
+  outline-offset: 2px;
+}

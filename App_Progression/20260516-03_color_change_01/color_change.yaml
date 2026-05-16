@@ -1,0 +1,46 @@
+app:
+  name: background_color_toggle
+  type: browser_app
+  goal: Create a simple webpage with one button that changes the background color when clicked.
+
+stack:
+  frontend:
+    - HTML
+    - CSS
+    - JavaScript
+  framework: none
+
+requirements:
+  - Render a page in the browser.
+  - Show exactly one visible button.
+  - Initial background color should be white.
+  - On each button click, change the background to a different color.
+  - Keep implementation simple and readable.
+
+ui:
+  title: Color Changer
+  button:
+    id: changeColorBtn
+    text: Change Background Color
+
+behavior:
+  on_button_click:
+    action: change_background_color
+    method: random_from_list
+    color_list:
+      - "#F94144"
+      - "#F8961E"
+      - "#F9C74F"
+      - "#90BE6D"
+      - "#43AA8B"
+      - "#577590"
+
+output_files:
+  - generated/index.html
+  - generated/styles.css
+  - generated/script.js
+
+acceptance_criteria:
+  - Opening generated/index.html in a browser shows one button.
+  - Clicking the button changes the page background color.
+  - No backend is required.
