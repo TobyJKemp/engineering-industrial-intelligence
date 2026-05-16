@@ -1,0 +1,8 @@
+business_domain: industrial operations
+objective: Draft a concise recommendation for reducing unplanned downtime.
+user_request: Analyze the provided context and suggest 3 practical actions.
+response_format: |
+  Markdown with sections:
+  - Summary
+  - Actions
+  - Risks

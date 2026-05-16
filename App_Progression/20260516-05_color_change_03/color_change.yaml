@@ -1,0 +1,19 @@
+app:
+  name: color_change_03
+  type: browser_app
+  goal: Build a browser app where school brand-color policy comes from markdown guardrails.
+
+ui:
+  title: School Brand Color Picker
+  school_selector_id: schoolSelect
+  color_selector_id: colorSelect
+  button_container_id: colorButtons
+
+guardrails:
+  policy_markdown: school_policies.md
+  default_policy_id: michigan
+
+output_files:
+  - generated/index.html
+  - generated/styles.css
+  - generated/script.js

@@ -1,0 +1,35 @@
+:root {
+  --bg: #ffffff;
+  --button-bg: #1f2937;
+  --button-text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 220ms ease;
+}
+
+#changeColorBtn {
+  border: 0;
+  border-radius: 10px;
+  padding: 0.85rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--button-bg);
+  color: var(--button-text);
+}
+
+#changeColorBtn:focus-visible {
+  outline: 3px solid #111827;
+  outline-offset: 3px;
+}

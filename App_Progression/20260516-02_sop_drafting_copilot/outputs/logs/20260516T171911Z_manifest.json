@@ -1,0 +1,9 @@
+{
+  "run_id": "20260516T171911Z",
+  "timestamp_utc": "2026-05-16T17:19:11.273776+00:00",
+  "app": "sop_drafting_copilot",
+  "model": "gpt-5.3-codex",
+  "prompt_file": "outputs/runs/20260516T171911Z_assembled_prompt.md",
+  "output_file": "outputs/runs/20260516T171911Z_model_output.md",
+  "status": "ok"
+}
