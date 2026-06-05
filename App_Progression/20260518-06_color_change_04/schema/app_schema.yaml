@@ -1,0 +1,137 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+type: object
+required:
+  - app
+  - llm
+  - ui
+  - behavior
+  - guardrails
+  - required_files
+  - validation
+  - prompting
+properties:
+  app:
+    type: object
+    required: [name, type, goal]
+    properties:
+      name: { type: string, minLength: 1 }
+      type: { type: string, const: browser_app }
+      goal: { type: string, minLength: 1 }
+  llm:
+    type: object
+    required: [provider, model, temperature]
+    properties:
+      provider: { type: string, minLength: 1 }
+      model: { type: string, minLength: 1 }
+      temperature: { type: number, minimum: 0, maximum: 2 }
+  ui:
+    type: object
+    required: [title, structure]
+    properties:
+      title: { type: string, minLength: 1 }
+      structure:
+        type: object
+        required: [controls]
+        properties:
+          controls:
+            type: array
+            minItems: 1
+            items:
+              type: object
+              required: [type, id]
+              properties:
+                type: { type: string, enum: [select, div, button, input] }
+                id: { type: string, minLength: 1 }
+                label: { type: string }
+                class_name: { type: string }
+  behavior:
+    type: object
+    required: [events]
+    properties:
+      state:
+        type: object
+      events:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          required: [id, source, event, actions]
+          properties:
+            id: { type: string, minLength: 1 }
+            source: { type: string, minLength: 1 }
+            event: { type: string, minLength: 1 }
+            actions:
+              type: array
+              minItems: 1
+              items: { type: string, minLength: 1 }
+  guardrails:
+    type: object
+    required: [policy_source, required_policy_ids, default_policy_id, enforce_only_allowed_colors]
+    properties:
+      policy_source:
+        type: object
+        required: [type, path]
+        properties:
+          type: { type: string, const: markdown_yaml_block }
+          path: { type: string, minLength: 1 }
+      required_policy_ids:
+        type: array
+        minItems: 1
+        items: { type: string, minLength: 1 }
+      default_policy_id: { type: string, minLength: 1 }
+      enforce_only_allowed_colors: { type: boolean }
+  output_root:
+    type: string
+  required_files:
+    type: array
+    minItems: 1
+    items: { type: string, minLength: 1 }
+  tests:
+    type: array
+    items:
+      type: object
+      required: [id, description]
+      properties:
+        id: { type: string, minLength: 1 }
+        description: { type: string, minLength: 1 }
+  validation:
+    type: object
+    required: [rules, auto_repair]
+    properties:
+      rules:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          required: [id, severity, check]
+          properties:
+            id: { type: string, minLength: 1 }
+            severity: { type: string, enum: [error, warning] }
+            check: { type: string, minLength: 1 }
+      auto_repair:
+        type: object
+        required: [enabled, max_attempts, include_previous_output, feedback_fields]
+        properties:
+          enabled: { type: boolean }
+          max_attempts: { type: integer, minimum: 1, maximum: 10 }
+          include_previous_output: { type: boolean }
+          feedback_fields:
+            type: array
+            minItems: 1
+            items: { type: string, minLength: 1 }
+  prompting:
+    type: object
+    required: [task_prompt_path, output_contract]
+    properties:
+      task_prompt_path: { type: string, minLength: 1 }
+      output_contract:
+        type: object
+        required: [format, description, required_keys]
+        properties:
+          format: { type: string, const: json_object }
+          description: { type: string, minLength: 1 }
+          required_keys:
+            type: array
+            minItems: 1
+            items: { type: string, minLength: 1 }
+additionalProperties: true
